@@ -1,0 +1,14 @@
+INFO:     127.0.0.1:64222 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64622 - "GET /articles?limit=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64623 - "GET /articles?limit=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64623 - "GET /articles?limit=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64794 - "GET /trending?limit=12 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64796 - "GET /trending?limit=12 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64889 - "GET /recommend/guest/0?count=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64889 - "GET /recommend/guest/0?count=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64889 - "GET /recommend/guest/0?count=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64889 - "GET /recommend/guest/0?count=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64889 - "GET /recommend/guest/0?count=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64890 - "GET /user-stats/guest HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65041 - "GET /user-stats/guest HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65041 - "GET /user-stats/guest HTTP/1.1" 200 OK
