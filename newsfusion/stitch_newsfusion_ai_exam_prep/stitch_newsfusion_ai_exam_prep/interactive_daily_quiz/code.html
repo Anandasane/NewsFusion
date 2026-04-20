@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b1326;
+            color: #dae2fd;
+        }
+        .font-serif-editorial {
+            font-family: 'Newsreader', serif;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#00885d",
+                        "outline-variant": "#464554",
+                        "on-primary-fixed": "#07006c",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "inverse-on-surface": "#283044",
+                        "primary": "#c0c1ff",
+                        "outline": "#908fa0",
+                        "error": "#ffb4ab",
+                        "secondary-container": "#42447b",
+                        "on-tertiary": "#003824",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-tint": "#c0c1ff",
+                        "on-primary": "#1000a9",
+                        "surface-container-high": "#222a3d",
+                        "on-secondary-fixed": "#13144a",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "primary-fixed": "#e1e0ff",
+                        "on-tertiary-fixed": "#002113",
+                        "surface-container-lowest": "#060e20",
+                        "on-secondary": "#292a60",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface": "#0b1326",
+                        "on-primary-container": "#0d0096",
+                        "tertiary": "#4edea3",
+                        "on-tertiary-container": "#000703",
+                        "on-secondary-fixed-variant": "#404178",
+                        "on-background": "#dae2fd",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-secondary-container": "#b2b3f2",
+                        "tertiary-fixed": "#6ffbbe",
+                        "primary-container": "#8083ff",
+                        "surface-container-highest": "#2d3449",
+                        "inverse-primary": "#494bd6",
+                        "background": "#0b1326",
+                        "surface-container": "#171f33",
+                        "on-error": "#690005",
+                        "secondary": "#c0c1ff",
+                        "on-surface-variant": "#c7c4d7",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#0b1326",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "surface-container-low": "#131b2e",
+                        "error-container": "#93000a",
+                        "surface-variant": "#2d3449",
+                        "surface-bright": "#31394d",
+                        "on-surface": "#dae2fd",
+                        "inverse-surface": "#dae2fd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#0b1326]/90 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-6 py-3 shadow-[0_4px_24px_-4px_rgba(218,226,253,0.06)]">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#dae2fd]/70 hover:bg-[#222a3d] p-2 rounded-full transition-colors duration-300">close</button>
+<h1 class="text-2xl font-serif italic text-[#dae2fd] font-['Newsreader'] tracking-tight">NewsFusion</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center bg-[#131b2e] px-4 py-1.5 rounded-full border border-[#dae2fd]/10">
+<span class="material-symbols-outlined text-[#c0c1ff] text-sm mr-2" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span class="font-mono text-sm font-medium tracking-wider text-[#c0c1ff]">14:52</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#c0c1ff]" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-bold text-[#c0c1ff]">12</span>
+</div>
+<button class="bg-[#222a3d] text-[#dae2fd] px-4 py-1.5 rounded-lg text-sm font-medium hover:bg-[#2d3449] transition-all">Exit Quiz</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex items-center justify-center p-4 md:p-8">
+<div class="w-full max-w-3xl flex flex-col gap-8">
+<!-- Progress Section -->
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<span class="text-xs font-bold uppercase tracking-widest text-primary/60">Current Module</span>
+<h2 class="text-xl font-serif-editorial font-semibold text-on-surface">Geopolitical Shifts 2024</h2>
+</div>
+<div class="text-right">
+<span class="text-sm font-medium text-on-surface/80">Question <span class="text-primary font-bold">3</span> of 10</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="h-1 w-full bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[30%] transition-all duration-500 shadow-[0_0_8px_rgba(78,222,163,0.4)]"></div>
+</div>
+</div>
+<!-- Question Card -->
+<div class="bg-surface-container-low p-8 md:p-12 rounded-xl shadow-xl relative overflow-hidden">
+<!-- Subtle Texture/Glow Background -->
+<div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="relative z-10 space-y-10">
+<!-- Question Text -->
+<p class="text-2xl md:text-3xl font-serif-editorial leading-snug text-on-surface">
+                        Which emerging economic bloc recently announced a unified digital currency framework to challenge the dominance of the petrodollar in bilateral trade?
+                    </p>
+<!-- Multiple Choice Options -->
+<div class="grid grid-cols-1 gap-4">
+<!-- Option A -->
+<button class="group flex items-center text-left p-5 rounded-lg bg-surface-container-high border border-transparent hover:bg-surface-container-highest active:scale-[0.98] transition-all duration-200">
+<span class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-lowest text-primary font-bold text-xs mr-4 border border-outline-variant/20 group-hover:border-primary/40 transition-colors">A</span>
+<span class="text-on-surface/90 font-medium">The BRICS+ Alliance</span>
+</button>
+<!-- Option B (Selected State) -->
+<button class="group flex items-center text-left p-5 rounded-lg bg-surface-container-highest ring-2 ring-primary shadow-[0_0_15px_rgba(192,193,255,0.15)] transition-all duration-200">
+<span class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-bold text-xs mr-4">B</span>
+<span class="text-primary font-semibold">The Gulf Cooperation Council (GCC)</span>
+<span class="material-symbols-outlined ml-auto text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<!-- Option C -->
+<button class="group flex items-center text-left p-5 rounded-lg bg-surface-container-high border border-transparent hover:bg-surface-container-highest active:scale-[0.98] transition-all duration-200">
+<span class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-lowest text-primary font-bold text-xs mr-4 border border-outline-variant/20 group-hover:border-primary/40 transition-colors">C</span>
+<span class="text-on-surface/90 font-medium">The ASEAN Economic Community</span>
+</button>
+<!-- Option D -->
+<button class="group flex items-center text-left p-5 rounded-lg bg-surface-container-high border border-transparent hover:bg-surface-container-highest active:scale-[0.98] transition-all duration-200">
+<span class="w-8 h-8 flex items-center justify-center rounded bg-surface-container-lowest text-primary font-bold text-xs mr-4 border border-outline-variant/20 group-hover:border-primary/40 transition-colors">D</span>
+<span class="text-on-surface/90 font-medium">The African Continental Free Trade Area</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 pt-4">
+<button class="flex items-center gap-2 px-6 py-3 rounded-lg text-primary font-medium border border-primary/20 hover:bg-primary/5 transition-all group">
+<span class="material-symbols-outlined text-xl group-hover:rotate-12 transition-transform">lightbulb</span>
+                    AI Hint
+                </button>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-8 py-3 rounded-lg text-on-surface/60 font-medium hover:text-on-surface transition-colors">
+                        Skip
+                    </button>
+<button class="flex-1 md:flex-none px-10 py-3 rounded-lg bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:-translate-y-0.5 active:translate-y-0 transition-all">
+                        Submit Answer
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Insight (Bento Component) -->
+<aside class="max-w-3xl mx-auto w-full px-4 pb-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="md:col-span-2 bg-surface-container-low p-6 rounded-xl flex gap-6 items-start">
+<img class="w-20 h-20 rounded-lg object-cover flex-shrink-0 grayscale opacity-60" data-alt="minimalist abstract visualization of global financial networks with glowing nodes and dark blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVCZE-oXzbOy99r-fG5Nwbmkdig7nlW4ACKtMh43aK7UoOaJdG6ZJKw5GWR3Il1vGB9JNNqZ1utA4ermQByKFbLMeGGG221Xk9uSeGdO4p84NkbHQAD5g-a1Nfl8x3dykT7kiC9DDrpxnjWtW4YLU6vvTnDoLajUDeVteha-ND7ZutWIlhnXp2oBTFAeWa89YL-wABcIvbfSnVQG_O6_HSzfyR5cxKjxLh8P14_pV00TmMrruGFDJjZPvOkTsZo3rji-kN2ijoss4"/>
+<div class="space-y-2">
+<h4 class="text-sm font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">auto_awesome</span>
+                        AI ANALYST INSIGHT
+                    </h4>
+<p class="text-sm text-on-surface/70 font-['Newsreader'] italic leading-relaxed">
+                        This question tests your understanding of the "Decentralized Finance &amp; Sovereignty" module. Look for groups that have recently expanded their membership to include major energy producers.
+                    </p>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 rounded-xl flex flex-col justify-between">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface/40">Difficulty</span>
+<div class="flex gap-1 mt-2">
+<div class="h-1 flex-1 bg-tertiary rounded-full"></div>
+<div class="h-1 flex-1 bg-tertiary rounded-full"></div>
+<div class="h-1 flex-1 bg-tertiary rounded-full"></div>
+<div class="h-1 flex-1 bg-tertiary rounded-full"></div>
+<div class="h-1 flex-1 bg-outline-variant/30 rounded-full"></div>
+</div>
+<p class="mt-4 text-xs font-medium text-on-surface/60">84% of Curators got this right.</p>
+</div>
+</div>
+</aside>
+</body></html>

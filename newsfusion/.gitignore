@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+venv/
+.env
+news.db
+newsfusion.db
+
+# Node
+node_modules/
+.DS_Store
+/dist
+/build
+
+# Logs
+*.log
