@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NewsFusion | Student Analytics Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#6bff8f",
+                        "surface-tint": "#c0c1ff",
+                        "on-primary-fixed": "#07006c",
+                        "on-background": "#e1e2eb",
+                        "tertiary-fixed": "#ffdcc5",
+                        "surface": "#101319",
+                        "on-primary": "#1000a9",
+                        "tertiary-container": "#d97721",
+                        "on-tertiary-fixed": "#301400",
+                        "on-tertiary-fixed-variant": "#703700",
+                        "outline-variant": "#464554",
+                        "surface-variant": "#32353c",
+                        "surface-container-highest": "#32353c",
+                        "error-container": "#93000a",
+                        "on-surface": "#e1e2eb",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "secondary": "#4ae176",
+                        "primary-fixed": "#e1e0ff",
+                        "surface-container": "#1d2026",
+                        "primary": "#c0c1ff",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "inverse-on-surface": "#2e3037",
+                        "on-tertiary": "#4f2500",
+                        "on-secondary": "#003915",
+                        "on-error-container": "#ffdad6",
+                        "secondary-container": "#00b954",
+                        "on-secondary-fixed-variant": "#005321",
+                        "on-secondary-fixed": "#002109",
+                        "primary-container": "#8083ff",
+                        "on-tertiary-container": "#452000",
+                        "on-secondary-container": "#004119",
+                        "outline": "#908fa0",
+                        "surface-container-high": "#272a31",
+                        "surface-dim": "#101319",
+                        "surface-container-lowest": "#0b0e14",
+                        "surface-bright": "#363940",
+                        "background": "#101319",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#e1e2eb",
+                        "inverse-primary": "#494bd6",
+                        "on-primary-container": "#0d0096",
+                        "tertiary": "#ffb783",
+                        "secondary-fixed-dim": "#4ae176",
+                        "on-surface-variant": "#c7c4d7",
+                        "surface-container-low": "#191c22"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0e1117;
+            color: #e1e2eb;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="hidden md:flex flex-col py-8 gap-y-6 bg-[#191c22] fixed left-0 h-screen w-72 z-40 transition-colors duration-200">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-white font-black text-xl">NF</div>
+<div>
+<h2 class="text-lg font-bold text-white font-headline">Editorial Feed</h2>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Premium Curator</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="px-4 mb-4">
+<p class="px-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Main Navigation</p>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#6366f1] text-white rounded-lg mx-2 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 mx-2 hover:bg-[#272a31] transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">category</span>
+<span class="font-medium text-sm">Category</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 mx-2 hover:bg-[#272a31] transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">speed</span>
+<span class="font-medium text-sm">Difficulty</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-slate-200 mx-2 hover:bg-[#272a31] transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-medium text-sm">Date</span>
+</a>
+</div>
+</nav>
+<div class="px-6 mt-auto">
+<div class="p-4 rounded-xl bg-surface-container-high relative overflow-hidden group">
+<div class="relative z-10">
+<p class="text-xs font-bold text-primary mb-1">PRO ACCESS</p>
+<p class="text-white text-sm font-bold mb-3">Upgrade to Pro</p>
+<button class="w-full py-2 bg-primary hover:bg-primary-container text-on-primary-container text-xs font-bold rounded-lg transition-all">Unlock Analytics</button>
+</div>
+<div class="absolute -right-4 -bottom-4 w-16 h-16 bg-primary opacity-10 rounded-full blur-xl group-hover:scale-150 transition-transform"></div>
+</div>
+</div>
+<div class="mt-4 px-4 space-y-1 border-t border-white/5 pt-4">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-200 mx-2 hover:bg-[#272a31] transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-slate-200 mx-2 hover:bg-[#272a31] transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+<span class="font-medium text-sm">Help</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-72 bg-[#0e1117]">
+<!-- TopNavBar Component -->
+<header class="flex justify-between items-center px-10 h-20 w-full bg-[#101319]/80 backdrop-blur-md sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="md:hidden text-2xl font-black text-white tracking-tighter">NewsFusion</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-400 hover:text-white transition-all duration-300 font-headline font-bold text-sm" href="#">Home</a>
+<a class="text-slate-400 hover:text-white transition-all duration-300 font-headline font-bold text-sm" href="#">Trending</a>
+<a class="text-slate-400 hover:text-white transition-all duration-300 font-headline font-bold text-sm" href="#">Exam Prep</a>
+<a class="text-[#6366f1] border-b-2 border-[#6366f1] pb-1 font-headline font-bold text-sm" href="#">Dashboard</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-lowest border-none rounded-full px-6 py-2 text-sm w-64 focus:ring-1 focus:ring-primary/40 text-on-surface" placeholder="Search analytics..." type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-lg">search</span>
+</div>
+<button class="relative text-slate-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-[#101319]"></span>
+</button>
+<div class="flex items-center gap-3 border-l border-white/5 pl-6">
+<img alt="User avatar" class="w-10 h-10 rounded-full object-cover" data-alt="Close up portrait of a young man with glasses smiling in soft studio lighting high end photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-gzYUgl81rxBWS_Q7IVNzanI7zmxHcsbKvnjCcXdBNFS5qHsA_vAql6Yg93ffHbezYDMtN8X493K07ppSVzhvFWPPZRVNy3pNuxHKxOfEgxK-UNDtk63VrYS98ASXzYI4I88QPSnm6kPXX0F0uzYvwd9pgg09oTYaWixTPw5lAzugaf_56ZHcNosntFYbwMl5JENg3_V-0boV9PahbwtDz63BG14GbaR472hlPie_2FEoQYrHn36Ps7xzwBSnMb9n9DGv16LWMKI"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="max-w-7xl mx-auto px-10 py-10">
+<!-- Header Section -->
+<div class="mb-10 flex justify-between items-end">
+<div>
+<h1 class="text-4xl font-bold font-headline tracking-tight text-white mb-2">Performance Overview</h1>
+<p class="text-slate-400 font-body">Welcome back, Alex. Your learning efficiency is up by 12% this week.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2.5 bg-surface-container-high hover:bg-[#272a31] text-white text-sm font-bold rounded-lg transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">download</span>
+                        Export PDF
+                    </button>
+<button class="px-6 py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary-container text-sm font-bold rounded-lg transition-all shadow-lg shadow-primary/20">
+                        Start New Quiz
+                    </button>
+</div>
+</div>
+<!-- Bento Grid - Stats -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+<!-- Accuracy Card -->
+<div class="md:col-span-2 bg-[#1c1f26] rounded-xl p-8 flex items-center justify-between border-none">
+<div>
+<p class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Overall Accuracy</p>
+<h3 class="text-6xl font-black font-headline text-white mb-2">84.2<span class="text-primary text-3xl">%</span></h3>
+<div class="flex items-center gap-2 text-secondary text-sm font-bold">
+<span class="material-symbols-outlined text-lg">trending_up</span>
+<span>+4.5% from last month</span>
+</div>
+</div>
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-white/5" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-dasharray="351.8" stroke-dashoffset="56" stroke-width="12"></circle>
+</svg>
+<span class="absolute material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<!-- Daily Streak Card -->
+<div class="bg-[#1c1f26] rounded-xl p-8 flex flex-col justify-between border-none overflow-hidden relative">
+<div class="relative z-10">
+<p class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Daily Streak</p>
+<div class="flex items-end gap-2">
+<h3 class="text-6xl font-black font-headline text-white">12</h3>
+<p class="text-slate-400 mb-2 font-bold uppercase text-xs">Days</p>
+</div>
+</div>
+<div class="flex gap-2 relative z-10 mt-6">
+<div class="w-full h-1 bg-primary rounded-full"></div>
+<div class="w-full h-1 bg-primary rounded-full"></div>
+<div class="w-full h-1 bg-primary rounded-full"></div>
+<div class="w-full h-1 bg-primary rounded-full"></div>
+<div class="w-full h-1 bg-white/10 rounded-full"></div>
+<div class="w-full h-1 bg-white/10 rounded-full"></div>
+<div class="w-full h-1 bg-white/10 rounded-full"></div>
+</div>
+<span class="absolute -right-8 -bottom-8 material-symbols-outlined text-9xl text-white/5 rotate-12" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<!-- Time Spent Card -->
+<div class="bg-[#1c1f26] rounded-xl p-8 flex flex-col justify-between border-none">
+<div>
+<p class="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4">Time Invested</p>
+<h3 class="text-4xl font-black font-headline text-white mb-2">24.5<span class="text-slate-500 text-lg ml-1">Hrs</span></h3>
+<p class="text-slate-400 text-xs font-medium">Focused study sessions</p>
+</div>
+<div class="flex items-center gap-1 mt-4">
+<div class="h-10 w-2 bg-secondary rounded-full"></div>
+<div class="h-16 w-2 bg-secondary/80 rounded-full"></div>
+<div class="h-12 w-2 bg-secondary/60 rounded-full"></div>
+<div class="h-20 w-2 bg-secondary rounded-full"></div>
+<div class="h-14 w-2 bg-secondary/40 rounded-full"></div>
+<div class="h-18 w-2 bg-secondary/70 rounded-full"></div>
+<div class="h-12 w-2 bg-secondary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Main Analytics Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+<!-- Topic Wise Performance -->
+<div class="lg:col-span-2 space-y-8">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-bold font-headline text-white">Topic Mastery</h2>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-highest rounded-full text-[10px] font-bold text-slate-300 uppercase">Quarterly</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Chart Item -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm font-bold text-white flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                                    Current Affairs
+                                </span>
+<span class="text-sm font-bold text-slate-400">92%</span>
+</div>
+<div class="w-full bg-white/5 h-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[92%] rounded-full shadow-[0_0_12px_rgba(192,193,255,0.4)]"></div>
+</div>
+</div>
+<!-- Chart Item -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm font-bold text-white flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                                    Analytical Reasoning
+                                </span>
+<span class="text-sm font-bold text-slate-400">78%</span>
+</div>
+<div class="w-full bg-white/5 h-3 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[78%] rounded-full shadow-[0_0_12px_rgba(74,225,118,0.4)]"></div>
+</div>
+</div>
+<!-- Chart Item -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm font-bold text-white flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                                    Economic Trends
+                                </span>
+<span class="text-sm font-bold text-slate-400">64%</span>
+</div>
+<div class="w-full bg-white/5 h-3 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[64%] rounded-full shadow-[0_0_12px_rgba(255,183,131,0.4)]"></div>
+</div>
+</div>
+<!-- Chart Item -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm font-bold text-white flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                                    Global Politics
+                                </span>
+<span class="text-sm font-bold text-slate-400">81%</span>
+</div>
+<div class="w-full bg-white/5 h-3 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[81%] rounded-full shadow-[0_0_12px_rgba(128,131,255,0.4)]"></div>
+</div>
+</div>
+</div>
+<!-- Visual Accent Card -->
+<div class="bg-surface-container-low p-8 rounded-2xl relative overflow-hidden flex items-center justify-between">
+<div class="relative z-10 max-w-md">
+<h4 class="text-lg font-bold text-white mb-2">Editor's Recommended Path</h4>
+<p class="text-slate-400 text-sm mb-6">Based on your performance in Economic Trends, we suggest completing the "Macro-Finance Foundations" module.</p>
+<button class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all">
+                                View Curriculum <span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+<img alt="Data visualization" class="w-48 h-32 rounded-xl object-cover grayscale opacity-40" data-alt="Modern abstract business data charts on a screen in a dark room with blue glowing accents professional clean" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWqJn0qevrpze27s1wBouLB4wjwtvWAQFjmAE9d2tHyrpH3cKmRG3orOg83Hc6IHAAm5bh_DZhuoAY9ZVsR8Pr__Vsxn8FwsTHopGVnZmEAz7-LMAGdhUrWm_l0KZjqPAZS_kGl6A-T-c8jcH0S3_ott5-8xE2EgOfvnV8JByTMAynIAktYjx36LDVWCeVhwcW2IEUQM6H9xYR2XBUv_EVDzd8D9SnHa7qe6J33LuEr_moBz0idNCDEOru3SJ5TBmuQxiX0vb9Xr0"/>
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[80px] rounded-full"></div>
+</div>
+</div>
+<!-- Recent Activity & Feedback -->
+<div class="space-y-8">
+<h2 class="text-xl font-bold font-headline text-white">Recent Quizzes</h2>
+<div class="space-y-4">
+<div class="p-5 bg-[#1c1f26] hover:bg-surface-container-high transition-colors rounded-xl flex items-center gap-4 border-l-4 border-primary">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-white">Weekly Market Analysis</h4>
+<p class="text-[10px] text-slate-500 font-bold uppercase mt-1">Score: 18/20 • 12m ago</p>
+</div>
+<span class="material-symbols-outlined text-slate-500">chevron_right</span>
+</div>
+<div class="p-5 bg-[#1c1f26] hover:bg-surface-container-high transition-colors rounded-xl flex items-center gap-4 border-l-4 border-secondary">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">public</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-white">G7 Summit Overview</h4>
+<p class="text-[10px] text-slate-500 font-bold uppercase mt-1">Score: 15/15 • Yesterday</p>
+</div>
+<span class="material-symbols-outlined text-slate-500">chevron_right</span>
+</div>
+<div class="p-5 bg-[#1c1f26] hover:bg-surface-container-high transition-colors rounded-xl flex items-center gap-4 border-l-4 border-tertiary">
+<div class="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-white">Tech Innovation Sprint</h4>
+<p class="text-[10px] text-slate-500 font-bold uppercase mt-1">Score: 09/15 • 2d ago</p>
+</div>
+<span class="material-symbols-outlined text-slate-500">chevron_right</span>
+</div>
+</div>
+<div class="p-6 bg-gradient-to-br from-surface-container-high to-surface-container-low rounded-2xl border border-white/5">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h4 class="text-sm font-bold text-white">AI Learning Insight</h4>
+</div>
+<p class="text-xs text-slate-400 leading-relaxed italic">"You excel at synthesising complex geopolitical events but tend to miss details in financial percentages. Focus on 'Quantitative Data' tags next session."</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-[#101319]/90 backdrop-blur-xl flex justify-around items-center z-50 px-6 border-none">
+<button class="flex flex-col items-center gap-1 text-[#6366f1]">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-[10px] font-bold">Trends</span>
+</button>
+<div class="w-12 h-12 -mt-10 bg-primary text-on-primary-container rounded-full flex items-center justify-center shadow-lg shadow-primary/40">
+<span class="material-symbols-outlined">add</span>
+</div>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">school</span>
+<span class="text-[10px] font-bold">Prep</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+</body></html>

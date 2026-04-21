@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NewsFusion | The Illuminated Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#00885d",
+                        "outline-variant": "#464554",
+                        "on-primary-fixed": "#07006c",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "inverse-on-surface": "#283044",
+                        "primary": "#c0c1ff",
+                        "outline": "#908fa0",
+                        "error": "#ffb4ab",
+                        "secondary-container": "#42447b",
+                        "on-tertiary": "#003824",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-tint": "#c0c1ff",
+                        "on-primary": "#1000a9",
+                        "surface-container-high": "#222a3d",
+                        "on-secondary-fixed": "#13144a",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "primary-fixed": "#e1e0ff",
+                        "on-tertiary-fixed": "#002113",
+                        "surface-container-lowest": "#060e20",
+                        "on-secondary": "#292a60",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface": "#0b1326",
+                        "on-primary-container": "#0d0096",
+                        "tertiary": "#4edea3",
+                        "on-tertiary-container": "#000703",
+                        "on-secondary-fixed-variant": "#404178",
+                        "on-background": "#dae2fd",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-secondary-container": "#b2b3f2",
+                        "tertiary-fixed": "#6ffbbe",
+                        "primary-container": "#8083ff",
+                        "surface-container-highest": "#2d3449",
+                        "inverse-primary": "#494bd6",
+                        "background": "#0b1326",
+                        "surface-container": "#171f33",
+                        "on-error": "#690005",
+                        "secondary": "#c0c1ff",
+                        "on-surface-variant": "#c7c4d7",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#0b1326",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "surface-container-low": "#131b2e",
+                        "error-container": "#93000a",
+                        "surface-variant": "#2d3449",
+                        "surface-bright": "#31394d",
+                        "on-surface": "#dae2fd",
+                        "inverse-surface": "#dae2fd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 4px 24px -4px rgba(218, 226, 253, 0.06);
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary/30 selection:text-primary">
+<!-- TopAppBar Shell -->
+<header class="bg-[#0b1326]/90 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-[0_4px_24px_-4px_rgba(218,226,253,0.06)]">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-[1600px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-serif italic text-[#dae2fd] font-['Newsreader'] tracking-tight">NewsFusion</span>
+<div class="hidden md:flex items-center bg-[#131b2e] rounded-lg px-3 py-1.5 gap-2 border border-[#dae2fd]/5">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm text-on-surface placeholder:text-outline w-64" placeholder="Search the archive..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-1.5 rounded-lg text-[#c0c1ff] font-bold transition-all hover:bg-[#222a3d]">
+<span class="material-symbols-outlined" data-icon="local_fire_department">local_fire_department</span>
+<span class="text-sm">12 Day Streak</span>
+</button>
+<button class="px-4 py-1.5 rounded-lg border border-[#dae2fd]/20 text-on-surface text-sm font-medium hover:bg-[#222a3d] transition-colors">Login</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-primary/30">
+<img alt="User profile" data-alt="close-up portrait of a professional man with clean lighting and a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdvtcOt89SpvH1pqCnTJENdOMk1YjSSQ5u8U4znSVB06P0wNC8f79yv171llNsjWtzpOaLDbdMe3ot4EErq1brARKnt9d6fWYhRVgCeLcYIodsM00dYTy8KZdvZ6doTSETIjWN3UtFGZivXtj0RR8hDmqKuYHCynoga_ZyUvLSFac51rlg-iKjG105VQ7rnD3SNPXMc0qrWobbgK2YEf8mtj8rUc2_RTcUi6dd_xlFfzbS72mTeYK6FVMyJX63sIWEpMOs3FQXD84"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen max-w-[1600px] mx-auto">
+<!-- SideNavBar Shell -->
+<aside class="hidden md:flex flex-col h-[calc(100vh-60px)] w-64 sticky top-[60px] bg-[#0b1326] border-r border-[#dae2fd]/10 p-4 gap-2">
+<div class="flex flex-col gap-1 mb-6 px-2">
+<span class="font-['Newsreader'] text-xl text-[#c0c1ff]">The Archive</span>
+<span class="text-xs text-[#dae2fd]/60 font-medium">Level 12 Curator</span>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<!-- Home Active -->
+<a class="flex items-center gap-3 px-3 py-2.5 bg-[#222a3d] text-[#c0c1ff] rounded-lg shadow-[0_0_15px_rgba(192,193,255,0.1)] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-sm font-medium">Home</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-[#dae2fd]/60 hover:text-[#dae2fd] hover:bg-[#131b2e] rounded-lg transition-all translate-x-0 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="font-['Inter'] text-sm font-medium">Trending</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-[#dae2fd]/60 hover:text-[#dae2fd] hover:bg-[#131b2e] rounded-lg transition-all translate-x-0 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-['Inter'] text-sm font-medium">Exam Prep</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-[#dae2fd]/60 hover:text-[#dae2fd] hover:bg-[#131b2e] rounded-lg transition-all translate-x-0 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+<span class="font-['Inter'] text-sm font-medium">Quizzes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-[#dae2fd]/60 hover:text-[#dae2fd] hover:bg-[#131b2e] rounded-lg transition-all translate-x-0 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-['Inter'] text-sm font-medium">Analytics</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-[#dae2fd]/5 flex flex-col gap-4">
+<button class="w-full py-3 px-4 bg-gradient-to-r from-primary to-primary-container text-on-primary-container text-xs font-bold rounded-lg shadow-lg active:scale-95 transition-all">
+                    Start Daily Quiz
+                </button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-[#dae2fd]/60 hover:text-[#dae2fd] text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+                        Settings
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 text-[#dae2fd]/60 hover:text-[#dae2fd] text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help_outline">help_outline</span>
+                        Support
+                    </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 min-w-0 p-6 lg:p-8 space-y-10">
+<!-- Featured Daily Digest -->
+<section class="relative group">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent rounded-2xl -z-10"></div>
+<div class="flex flex-col md:flex-row gap-8 items-center bg-surface-container-low p-6 md:p-10 rounded-2xl border border-[#dae2fd]/5">
+<div class="flex-1 space-y-4">
+<div class="flex items-center gap-2 text-tertiary font-bold text-xs tracking-widest">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            DAILY DIGEST • OCTOBER 24
+                        </div>
+<h1 class="font-headline text-3xl md:text-5xl text-on-surface leading-tight">The Silicon Silk Road: How Central Asia is Rewriting Trade.</h1>
+<p class="font-headline text-lg text-on-surface-variant italic leading-relaxed max-w-2xl">
+                            "A deep dive into the burgeoning tech corridors connecting East and West, and why it matters for the next decade of global economics."
+                        </p>
+<div class="flex items-center gap-4 pt-4">
+<button class="px-6 py-2.5 bg-primary text-on-primary font-bold rounded-lg hover:bg-primary-container transition-colors text-sm">Read Full Analysis</button>
+<button class="flex items-center gap-2 px-6 py-2.5 text-primary border border-primary/20 rounded-lg hover:bg-primary/5 transition-colors text-sm font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="history_edu">history_edu</span>
+                                Prep for Exam
+                            </button>
+</div>
+</div>
+<div class="w-full md:w-72 h-48 md:h-72 rounded-xl overflow-hidden shadow-2xl rotate-1 group-hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="abstract digital visualization of global network connections across a dark world map with neon glowing blue lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLKeBrF2bAExQHUv4oY3GmFbywyFzfX5tYPDtUEDeiUzgAsqoLgsZ_QLcs2qOf_Kr2xZgzwUbUbP63pq_BEsI7cIU4Rl_t6visaxSOO0mKi67pQjE03nKeRq0vvUAtvOCHvIPK2mnDLUy-dq-IpgQoXJY7oSA0vtMMlqrZY6_LwjzCUMIRROWSEgSer_sz5sKa274kFBZF7_rQRpas02icPDqofDnia9c8tRK8_ApTUc6scJ5JMPpy8b3qIKQaAUcrYosuMYMJtLw"/>
+</div>
+</div>
+</section>
+<!-- Personalized Feed Grid -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<h2 class="font-headline text-3xl text-on-surface">Curated for You</h2>
+<div class="flex gap-4 text-xs font-bold text-outline uppercase tracking-widest">
+<span class="text-primary cursor-pointer border-b-2 border-primary pb-1">All</span>
+<span class="hover:text-on-surface cursor-pointer border-b-2 border-transparent pb-1 transition-all">Polity</span>
+<span class="hover:text-on-surface cursor-pointer border-b-2 border-transparent pb-1 transition-all">Economy</span>
+<span class="hover:text-on-surface cursor-pointer border-b-2 border-transparent pb-1 transition-all">Science</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Article Card 1 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-high p-5 rounded-xl transition-all duration-300 border border-transparent hover:border-primary/10 flex flex-col h-full shadow-sm hover:shadow-xl">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-bold uppercase tracking-tighter rounded">Economy</span>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<h3 class="font-headline text-xl text-on-surface mb-3 group-hover:text-primary transition-colors leading-snug">Fiscal Policy Shifts in Emerging Markets: A 2024 Perspective</h3>
+<div class="flex items-start gap-3 bg-surface-container-lowest/50 p-3 rounded-lg border border-[#dae2fd]/5 mb-6">
+<span class="material-symbols-outlined text-tertiary text-sm mt-0.5" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">AI Summary: Governments are pivoting toward green debt instruments while balancing inflation pressures in post-pandemic recovery cycles.</p>
+</div>
+<div class="mt-auto flex items-center justify-between pt-4 border-t border-[#dae2fd]/5">
+<div class="flex items-center gap-2 text-xs text-outline">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span>
+                                6 min read
+                            </div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-colors">Save</button>
+<button class="px-3 py-1.5 text-xs font-bold bg-primary/10 text-primary rounded-lg border border-primary/20 hover:bg-primary/20 transition-colors">Exam Prep</button>
+</div>
+</div>
+</div>
+<!-- Article Card 2 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-high p-5 rounded-xl transition-all duration-300 border border-transparent hover:border-primary/10 flex flex-col h-full shadow-sm hover:shadow-xl">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-tertiary-container/20 text-tertiary text-[10px] font-bold uppercase tracking-tighter rounded">Science</span>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<h3 class="font-headline text-xl text-on-surface mb-3 group-hover:text-primary transition-colors leading-snug">Quantum Computing: Breaking the RSA Encryption Barriers</h3>
+<div class="flex items-start gap-3 bg-surface-container-lowest/50 p-3 rounded-lg border border-[#dae2fd]/5 mb-6">
+<span class="material-symbols-outlined text-tertiary text-sm mt-0.5" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">AI Summary: Recent breakthroughs in qubit stability suggest a faster timeline for quantum supremacy, posing new risks for global cybersecurity.</p>
+</div>
+<div class="mt-auto flex items-center justify-between pt-4 border-t border-[#dae2fd]/5">
+<div class="flex items-center gap-2 text-xs text-outline">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span>
+                                8 min read
+                            </div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-colors">Save</button>
+<button class="px-3 py-1.5 text-xs font-bold bg-primary/10 text-primary rounded-lg border border-primary/20 hover:bg-primary/20 transition-colors">Exam Prep</button>
+</div>
+</div>
+</div>
+<!-- Article Card 3 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-high p-5 rounded-xl transition-all duration-300 border border-transparent hover:border-primary/10 flex flex-col h-full shadow-sm hover:shadow-xl">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-bold uppercase tracking-tighter rounded">Polity</span>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<h3 class="font-headline text-xl text-on-surface mb-3 group-hover:text-primary transition-colors leading-snug">The Evolution of Digital Sovereignty in Modern Constitutions</h3>
+<div class="flex items-start gap-3 bg-surface-container-lowest/50 p-3 rounded-lg border border-[#dae2fd]/5 mb-6">
+<span class="material-symbols-outlined text-tertiary text-sm mt-0.5" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">AI Summary: A comparative analysis of how nations are codifying data privacy as a fundamental human right in the digital age.</p>
+</div>
+<div class="mt-auto flex items-center justify-between pt-4 border-t border-[#dae2fd]/5">
+<div class="flex items-center gap-2 text-xs text-outline">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span>
+                                12 min read
+                            </div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-colors">Save</button>
+<button class="px-3 py-1.5 text-xs font-bold bg-primary/10 text-primary rounded-lg border border-primary/20 hover:bg-primary/20 transition-colors">Exam Prep</button>
+</div>
+</div>
+</div>
+<!-- Article Card 4 -->
+<div class="group bg-surface-container-low hover:bg-surface-container-high p-5 rounded-xl transition-all duration-300 border border-transparent hover:border-primary/10 flex flex-col h-full shadow-sm hover:shadow-xl">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-tertiary-container/20 text-tertiary text-[10px] font-bold uppercase tracking-tighter rounded">Environment</span>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<h3 class="font-headline text-xl text-on-surface mb-3 group-hover:text-primary transition-colors leading-snug">Reforestation Algorithms: Using AI to Restore Bio-diversity</h3>
+<div class="flex items-start gap-3 bg-surface-container-lowest/50 p-3 rounded-lg border border-[#dae2fd]/5 mb-6">
+<span class="material-symbols-outlined text-tertiary text-sm mt-0.5" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<p class="text-xs text-on-surface-variant leading-relaxed">AI Summary: Machine learning models are now predicting optimal seed placement to ensure 90% survival rates in desolate terrains.</p>
+</div>
+<div class="mt-auto flex items-center justify-between pt-4 border-t border-[#dae2fd]/5">
+<div class="flex items-center gap-2 text-xs text-outline">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span>
+                                5 min read
+                            </div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/10 rounded-lg transition-colors">Save</button>
+<button class="px-3 py-1.5 text-xs font-bold bg-primary/10 text-primary rounded-lg border border-primary/20 hover:bg-primary/20 transition-colors">Exam Prep</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Right Sidebar Widgets -->
+<aside class="hidden xl:block w-80 p-8 border-l border-[#dae2fd]/10 space-y-8">
+<!-- Daily Streak Widget -->
+<div class="bg-surface-container-high p-6 rounded-2xl border border-[#dae2fd]/5 editorial-shadow">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-sm font-bold tracking-widest text-outline uppercase">Daily Streak</h3>
+<span class="material-symbols-outlined text-primary" data-icon="insights">insights</span>
+</div>
+<div class="flex justify-between items-end mb-4">
+<div class="flex flex-col">
+<span class="text-4xl font-headline text-on-surface">12</span>
+<span class="text-xs text-outline font-medium">Days active</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary text-sm font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                        +15% xp
+                    </div>
+</div>
+<div class="flex gap-1.5 h-1 w-full bg-[#0b1326] rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-full"></div>
+<div class="h-full bg-tertiary w-full"></div>
+<div class="h-full bg-tertiary w-full"></div>
+<div class="h-full bg-tertiary w-full"></div>
+<div class="h-full bg-tertiary w-full"></div>
+<div class="h-full bg-tertiary w-1/2"></div>
+<div class="h-full bg-surface-container-highest w-full"></div>
+</div>
+<p class="text-[10px] text-outline mt-3 text-center">2 more days to reach 'Expert Curator' status.</p>
+</div>
+<!-- Trending Topics Widget -->
+<div class="space-y-4">
+<h3 class="text-sm font-bold tracking-widest text-outline uppercase px-2">Trending in Archive</h3>
+<div class="space-y-1">
+<div class="flex items-center justify-between p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<div class="flex flex-col">
+<span class="text-xs text-primary font-bold">#G20Summit</span>
+<span class="text-[10px] text-outline">12.4k Prep Sessions</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-on-surface text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<div class="flex flex-col">
+<span class="text-xs text-primary font-bold">#AIEthics</span>
+<span class="text-[10px] text-outline">8.1k Prep Sessions</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-on-surface text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<div class="flex flex-col">
+<span class="text-xs text-primary font-bold">#GreenFinance</span>
+<span class="text-[10px] text-outline">5.2k Prep Sessions</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-on-surface text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<div class="flex flex-col">
+<span class="text-xs text-primary font-bold">#LunarBase</span>
+<span class="text-[10px] text-outline">3.9k Prep Sessions</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:text-on-surface text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Focus Mode CTA -->
+<div class="relative overflow-hidden p-6 rounded-2xl bg-[#131b2e] border border-primary/20">
+<div class="relative z-10 space-y-3">
+<span class="material-symbols-outlined text-primary" data-icon="center_focus_strong">center_focus_strong</span>
+<h4 class="font-headline text-lg text-on-surface">Enter Focus Mode</h4>
+<p class="text-xs text-outline leading-relaxed">Disable all non-essential metrics and focus solely on the reading text.</p>
+<button class="text-xs font-bold text-primary underline underline-offset-4 hover:text-on-surface transition-colors">Activate Now</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-8xl" data-icon="auto_stories">auto_stories</span>
+</div>
+</div>
+</aside>
+</div>
+</body></html>
